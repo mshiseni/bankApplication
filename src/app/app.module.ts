@@ -10,6 +10,20 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+//Importing All Pages
+import { LoginPage } from '../pages/login/login';
+import { DepositWithdrawalsPage } from '../pages/deposit-withdrawals/deposit-withdrawals';
+import { DepositPage } from '../pages/deposit/deposit';
+import { OpenAccountPage } from '../pages/open-account/open-account';
+//Importing Auth Service
+import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { firebaseConfig } from '../providers/auth-service/auth-service';
+//import Http modules
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -17,10 +31,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage,
+    DepositWithdrawalsPage,
+    DepositPage,
+    OpenAccountPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
+    AngularFireModule.initializeApp(firebaseConfig.fire),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -29,12 +50,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage,
+    DepositWithdrawalsPage,
+    DepositPage,
+    OpenAccountPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    AngularFireAuth,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthServiceProvider
   ]
 })
 export class AppModule {}

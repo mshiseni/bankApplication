@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Open Account</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-item>
+            <ion-input type="number" placeholder="Account Number(Optional)" [(ngModel)]="account" ></ion-input>
+          </ion-item>  
+        <ion-item>
+          <button ion-button full (click)="register()">Register</button>
+        </ion-item> 
+    </ion-card>
+</ion-content>

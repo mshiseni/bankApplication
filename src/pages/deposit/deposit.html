@@ -1,0 +1,31 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>Deposit/Withdraw</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-item >
+          <ion-input type="number" placeholder="Amount to Deposit" [(ngModel)]="amount" ></ion-input>
+        </ion-item> 
+        <ion-item >
+          <ion-input type="number" placeholder="Amount for Overdraft" [(ngModel)]="overdraft" ></ion-input>
+        </ion-item> 
+          <ion-item >
+            <p>
+              Available Balance: R {{finalBalance}}
+            </p>
+            <p>
+              Available Overdraft: R {{finalOverdraft}}
+            </p>
+          </ion-item>  
+        <ion-item>
+          <button ion-button full (click)="deposit()">Deposit</button>
+        </ion-item> 
+        <ion-item>
+            <button ion-button full (click)="withdraw()">Withdraw</button>
+          </ion-item>
+    </ion-card>
+</ion-content>
